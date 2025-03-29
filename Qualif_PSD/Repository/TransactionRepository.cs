@@ -10,14 +10,14 @@ namespace Qualif_PSD.Repository
 {
     public class TransactionRepository
     {
-        DatabaseEntities db = new DatabaseEntities();
-        public void checkout(int userId)
+        DatabaseEntities1 db = new DatabaseEntities1();
+        public string checkout(int userId)
         {
             List<CartDetail> cartItems = db.CartDetails.Where(c => c.customer_id == userId).ToList();
 
             if (cartItems.Count == 0)
             {
-                return;
+                return "There's no item in cart";
             }
 
             TransactionHeader newTransaction = createTransactionHeader(userId);
@@ -28,6 +28,7 @@ namespace Qualif_PSD.Repository
 
             removeCart(cartItems);
 
+            return "Checkout successful";
         }
 
         public TransactionHeader createTransactionHeader(int userId)

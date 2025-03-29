@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Qualif_PSD.Handler;
-using Qualif_PSD.Model;
+using Qualif_PSD.Modules;
+using WebApplicationFrontend.Model;
 
 namespace WebApplicationFrontend.Controller
 {
     public class CartController
     {
-        CartHandler cartHandler = new CartHandler();
+        CartWebService.CartWebService cartWebService = new CartWebService.CartWebService();
 
         public string addToCart(int userId, int productId)
         {
-            CartDetail cart = cartHandler.addToCart(userId, productId);
+            CartDetail cart = Json.Decode<CartDetail>(cartWebService.addToCart(userId, productId));
             if (cart == null)
             {
                 return "Item added successful";
@@ -23,7 +23,7 @@ namespace WebApplicationFrontend.Controller
 
         public string removeFromCart(int cartId)
         {
-            CartDetail cart = cartHandler.removeFromCart(cartId);
+            CartDetail cart = Json.Decode<CartDetail>(cartWebService.removeFromCart(cartId));
 
             if (cart == null)
             {
@@ -35,12 +35,16 @@ namespace WebApplicationFrontend.Controller
 
         public List<object> getUserCartDetails(int userId)
         {
-            return cartHandler.getUserCartDetails(userId);
+            List<object> userCartDetail = Json.Decode<List<object>>(cartWebService.getUserCartDetails(userId));
+
+            return userCartDetail;
         }
 
         public int getTotalPrice(int userId)
         {
-            return cartHandler.getTotalPrice(userId);
+            int total = Json.Decode<int>(cartWebService.getTotalPrice(userId));
+
+            return total;
         }
     }
 }

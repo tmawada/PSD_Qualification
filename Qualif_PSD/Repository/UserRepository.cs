@@ -10,7 +10,7 @@ namespace Qualif_PSD.Repository
 {
     public class UserRepository
     {
-        DatabaseEntities db = new DatabaseEntities();
+        DatabaseEntities1 db = new DatabaseEntities1();
 
         UserFactory userFactory = new UserFactory();
 

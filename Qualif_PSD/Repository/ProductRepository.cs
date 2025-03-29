@@ -15,7 +15,7 @@ namespace Qualif_PSD.Repository
 
         ProductFactory productFactory = new ProductFactory();
 
-        DatabaseEntities db = new DatabaseEntities();
+        DatabaseEntities1 db = new DatabaseEntities1();
 
         public void addProduct(string productName, int productPrice, string productType)
         {

@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Qualif_PSD.Controller;
-using Qualif_PSD.Model;
+using WebApplicationFrontend.Controller;
+using WebApplicationFrontend.Model;
 
 namespace WebApplicationFrontend.Views
 {
@@ -69,7 +69,7 @@ namespace WebApplicationFrontend.Views
         }
         protected void TransactionBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomePage.aspx");
+            Response.Redirect("TransactionListPage.aspx");
         }
     }
 }

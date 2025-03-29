@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Qualif_PSD.Controller;
-using Qualif_PSD.Model;
+using WebApplicationFrontend.Controller;
+using WebApplicationFrontend.Model;
+
 
 namespace WebApplicationFrontend.Views
 {

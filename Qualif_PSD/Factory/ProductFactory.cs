@@ -8,7 +8,7 @@ namespace Qualif_PSD.Factory
 {
     public class ProductFactory
     {
-        DatabaseEntities db = new DatabaseEntities();
+        DatabaseEntities1 db = new DatabaseEntities1();
         public MsProduct addProduct(string productName, int productPrice, string productType)
         {
             MsProduct product = new MsProduct();

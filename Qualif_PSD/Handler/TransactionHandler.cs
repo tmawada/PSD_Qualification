@@ -10,9 +10,9 @@ namespace Qualif_PSD.Handler
     public class TransactionHandler
     {
         TransactionRepository transactionRepository = new TransactionRepository();
-        public void checkout(int userId)
+        public string checkout(int userId)
         {
-            transactionRepository.checkout(userId);
+            return transactionRepository.checkout(userId);
         }
 
         public List<TransactionHeader> getTransaction(int userId)

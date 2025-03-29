@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Qualif_PSD.Handler;
-using Qualif_PSD.Model;
 using Qualif_PSD.Modules;
+using WebApplicationFrontend.Model;
 
 namespace WebApplicationFrontend.Controller
 {
     public class UserController
     {
-        UserHandler userHandler = new UserHandler();
         public string createUser(string username, string email, string password, string confirmPassword, string gender)
         {
             if (string.IsNullOrEmpty(username))
@@ -39,11 +37,10 @@ namespace WebApplicationFrontend.Controller
             }
             else
             {
-                UserWebService.UserWebService webService1 = new UserWebService.UserWebService();
-                webService1.createUser(username, email, password, gender);
+                UserWebService.UserWebService userWebService = new UserWebService.UserWebService();
+                userWebService.createUser(username, email, password, gender);
 
-                return Json.Decode<String>(webService1.createUser(username, email, password, gender));
-                //return "";
+                return "";
             }
         }
 
@@ -65,7 +62,11 @@ namespace WebApplicationFrontend.Controller
             }
             else
             {
-                MsUser user = userHandler.getUser(username, password);
+                UserWebService.UserWebService userWebService = new UserWebService.UserWebService();
+
+                string response = userWebService.getUser(username, password);
+
+                MsUser user = Json.Decode<MsUser>(response);
 
                 if (user != null)
                 {

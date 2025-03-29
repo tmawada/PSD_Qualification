@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -103,17 +104,36 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Web References\UserWebService\Reference.map">
+    <None Include="Web References\CartWebService\CartWebService.wsdl" />
+    <Content Include="Web References\CartWebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
+    <None Include="Web References\ProductWebService\ProductWebService.disco" />
+    <None Include="Web References\ProductWebService\ProductWebService.wsdl" />
+    <None Include="Web References\ProductWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CartWebService\CartWebService.disco" />
+    <Content Include="Web References\TransactionWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\TransactionWebService\TransactionWebService.wsdl" />
+    <None Include="Web References\UserWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\UserWebService\UserWebService.disco" />
+    <None Include="Web References\TransactionWebService\TransactionWebService.disco" />
     <Content Include="Web.config" />
     <None Include="Web References\UserWebService\UserWebService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\ProductController.cs" />
+    <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Model\CartDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -209,6 +229,21 @@
     <Compile Include="Views\UpdateProduct.aspx.designer.cs">
       <DependentUpon>UpdateProduct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\CartWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ProductWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TransactionWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\UserWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -244,6 +279,39 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44316/WebServices/CartWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CartWebService\</RelPath>
+      <UpdateFromURL>https://localhost:44316/WebServices/CartWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebApplicationFrontend_CartWebService_CartWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44316/WebServices/ProductWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ProductWebService\</RelPath>
+      <UpdateFromURL>https://localhost:44316/WebServices/ProductWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebApplicationFrontend_ProductWebService_ProductWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://localhost:44316/WebServices/TransactionWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TransactionWebService\</RelPath>
+      <UpdateFromURL>https://localhost:44316/WebServices/TransactionWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebApplicationFrontend_TransactionWebService_TransactionWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="https://localhost:44316/WebServices/UserWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\UserWebService\</RelPath>

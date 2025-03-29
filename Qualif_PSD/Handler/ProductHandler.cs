@@ -11,14 +11,18 @@ namespace Qualif_PSD.Handler
     {
         ProductRepository productRepository = new ProductRepository();
 
-        public void addProduct(string productName, int productPrice, string productType)
+        public string addProduct(string productName, int productPrice, string productType)
         {
-            productRepository.addProduct(productName, productPrice, productType);    
+            productRepository.addProduct(productName, productPrice, productType);
+
+            return "Product Added Successful";
+
         }
 
-        public void deleteProduct(int productId)
+        public string deleteProduct(int productId)
         {
             productRepository.deleteProduct(productId);
+            return "Product Delete Successful";
         }
 
         public MsProduct getProduct(int productId)

@@ -13,10 +13,10 @@ namespace Qualif_PSD.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseEntities : DbContext
+    public partial class DatabaseEntities1 : DbContext
     {
-        public DatabaseEntities()
-            : base("name=DatabaseEntities")
+        public DatabaseEntities1()
+            : base("name=DatabaseEntities1")
         {
         }
     
@@ -25,9 +25,9 @@ namespace Qualif_PSD.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<MsUser> MsUsers { get; set; }
-        public virtual DbSet<MsProduct> MsProducts { get; set; }
         public virtual DbSet<CartDetail> CartDetails { get; set; }
+        public virtual DbSet<MsProduct> MsProducts { get; set; }
+        public virtual DbSet<MsUser> MsUsers { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
         public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
     }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CartDetail">
           <Key>
             <PropertyRef Name="Id" />
@@ -88,10 +88,31 @@
             <End Role="CartDetail" EntitySet="CartDetail" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CartDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="customer_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MsUser" Relationship="Self.FK__CartDetai__custo__70DDC3D8" FromRole="CartDetail" ToRole="MsUser" />
+          <NavigationProperty Name="MsProduct" Relationship="Self.FK__CartDetai__produ__6FE99F9F" FromRole="CartDetail" ToRole="MsProduct" />
+        </EntityType>
+        <EntityType Name="MsProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="225" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="product_price" Type="Int32" Nullable="false" />
+          <Property Name="product_type" Type="String" MaxLength="225" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CartDetails" Relationship="Self.FK__CartDetai__produ__6FE99F9F" FromRole="MsProduct" ToRole="CartDetail" />
+        </EntityType>
         <EntityType Name="MsUser">
           <Key>
             <PropertyRef Name="Id" />
@@ -102,67 +123,8 @@
           <Property Name="password" Type="String" MaxLength="225" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="gender" Type="String" MaxLength="225" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="role" Type="String" MaxLength="225" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CartDetails" Relationship="DatabaseModel.FK__CartDetai__custo__70DDC3D8" FromRole="MsUser" ToRole="CartDetail" />
+          <NavigationProperty Name="CartDetails" Relationship="Self.FK__CartDetai__custo__70DDC3D8" FromRole="MsUser" ToRole="CartDetail" />
         </EntityType>
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="MsUsers" EntityType="Self.MsUser" />
-          <EntitySet Name="MsProducts" EntityType="DatabaseModel.MsProduct" />
-          <EntitySet Name="CartDetails" EntityType="DatabaseModel.CartDetail" />
-          <AssociationSet Name="FK__CartDetai__custo__70DDC3D8" Association="DatabaseModel.FK__CartDetai__custo__70DDC3D8">
-            <End Role="MsUser" EntitySet="MsUsers" />
-            <End Role="CartDetail" EntitySet="CartDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CartDetai__produ__6FE99F9F" Association="DatabaseModel.FK__CartDetai__produ__6FE99F9F">
-            <End Role="MsProduct" EntitySet="MsProducts" />
-            <End Role="CartDetail" EntitySet="CartDetails" />
-          </AssociationSet>
-          <EntitySet Name="TransactionDetails" EntityType="DatabaseModel.TransactionDetail" />
-          <EntitySet Name="TransactionHeaders" EntityType="DatabaseModel.TransactionHeader" />
-          </EntityContainer>
-        <EntityType Name="MsProduct">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="product_name" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
-          <Property Name="product_price" Type="Int32" Nullable="false" />
-          <Property Name="product_type" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CartDetails" Relationship="DatabaseModel.FK__CartDetai__produ__6FE99F9F" FromRole="MsProduct" ToRole="CartDetail" />
-        </EntityType>
-        <EntityType Name="CartDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="product_id" Type="Int32" Nullable="false" />
-          <Property Name="customer_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MsUser" Relationship="DatabaseModel.FK__CartDetai__custo__70DDC3D8" FromRole="CartDetail" ToRole="MsUser" />
-          <NavigationProperty Name="MsProduct" Relationship="DatabaseModel.FK__CartDetai__produ__6FE99F9F" FromRole="CartDetail" ToRole="MsProduct" />
-        </EntityType>
-        <Association Name="FK__CartDetai__custo__70DDC3D8">
-          <End Type="DatabaseModel.MsUser" Role="MsUser" Multiplicity="1" />
-          <End Type="DatabaseModel.CartDetail" Role="CartDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MsUser">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CartDetail">
-              <PropertyRef Name="customer_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CartDetai__produ__6FE99F9F">
-          <End Type="DatabaseModel.MsProduct" Role="MsProduct" Multiplicity="1" />
-          <End Type="DatabaseModel.CartDetail" Role="CartDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MsProduct">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CartDetail">
-              <PropertyRef Name="product_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TransactionDetail">
           <Key>
             <PropertyRef Name="transaction_detail_id" />
@@ -179,12 +141,70 @@
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="transaction_date" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
-        </Schema>
+        <Association Name="FK__CartDetai__custo__70DDC3D8">
+          <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
+          <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CartDetail">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CartDetai__produ__6FE99F9F">
+          <End Role="MsProduct" Type="Self.MsProduct" Multiplicity="1" />
+          <End Role="CartDetail" Type="Self.CartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CartDetail">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CartDetails" EntityType="Self.CartDetail" />
+          <EntitySet Name="MsProducts" EntityType="Self.MsProduct" />
+          <EntitySet Name="MsUsers" EntityType="Self.MsUser" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
+          <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeader" />
+          <AssociationSet Name="FK__CartDetai__custo__70DDC3D8" Association="Self.FK__CartDetai__custo__70DDC3D8">
+            <End Role="MsUser" EntitySet="MsUsers" />
+            <End Role="CartDetail" EntitySet="CartDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CartDetai__produ__6FE99F9F" Association="Self.FK__CartDetai__produ__6FE99F9F">
+            <End Role="MsProduct" EntitySet="MsProducts" />
+            <End Role="CartDetail" EntitySet="CartDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities1">
+          <EntitySetMapping Name="CartDetails">
+            <EntityTypeMapping TypeName="DatabaseModel.CartDetail">
+              <MappingFragment StoreEntitySet="CartDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsProducts">
+            <EntityTypeMapping TypeName="DatabaseModel.MsProduct">
+              <MappingFragment StoreEntitySet="MsProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_type" ColumnName="product_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="MsUsers">
             <EntityTypeMapping TypeName="DatabaseModel.MsUser">
               <MappingFragment StoreEntitySet="MsUser">
@@ -197,44 +217,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MsProducts">
-            <EntityTypeMapping TypeName="DatabaseModel.MsProduct">
-              <MappingFragment StoreEntitySet="MsProduct">
-                <ScalarProperty Name="product_type" ColumnName="product_type" />
-                <ScalarProperty Name="product_price" ColumnName="product_price" />
-                <ScalarProperty Name="product_name" ColumnName="product_name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CartDetails">
-            <EntityTypeMapping TypeName="DatabaseModel.CartDetail">
-              <MappingFragment StoreEntitySet="CartDetail">
-                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TransactionDetails">
             <EntityTypeMapping TypeName="DatabaseModel.TransactionDetail">
               <MappingFragment StoreEntitySet="TransactionDetail">
-                <ScalarProperty Name="product_id" ColumnName="product_id" />
-                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
                 <ScalarProperty Name="transaction_detail_id" ColumnName="transaction_detail_id" />
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TransactionHeaders">
             <EntityTypeMapping TypeName="DatabaseModel.TransactionHeader">
               <MappingFragment StoreEntitySet="TransactionHeader">
-                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

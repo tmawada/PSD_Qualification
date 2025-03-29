@@ -12,7 +12,7 @@ namespace Qualif_PSD.Repository
     public class CartRepostitory
     {
 
-        DatabaseEntities db = new DatabaseEntities();
+        DatabaseEntities1 db = new DatabaseEntities1();
 
         CartFactory factory = new CartFactory();
 

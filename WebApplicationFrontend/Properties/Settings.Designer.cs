@@ -32,5 +32,35 @@ namespace WebApplicationFrontend.Properties {
                 return ((string)(this["WebApplicationFrontend_UserWebService_UserWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/ProductWebService.asmx")]
+        public string WebApplicationFrontend_ProductWebService_ProductWebService {
+            get {
+                return ((string)(this["WebApplicationFrontend_ProductWebService_ProductWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/TransactionWebService.asmx")]
+        public string WebApplicationFrontend_TransactionWebService_TransactionWebService {
+            get {
+                return ((string)(this["WebApplicationFrontend_TransactionWebService_TransactionWebService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/CartWebService.asmx")]
+        public string WebApplicationFrontend_CartWebService_CartWebService {
+            get {
+                return ((string)(this["WebApplicationFrontend_CartWebService_CartWebService"]));
+            }
+        }
     }
 }
