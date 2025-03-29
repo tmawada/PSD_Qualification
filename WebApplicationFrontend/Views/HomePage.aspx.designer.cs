@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Qualif_PSD.Views
+namespace WebApplicationFrontend.Views
 {
 
 
-    public partial class WebForm3
+    public partial class HomePage
     {
 
         /// <summary>

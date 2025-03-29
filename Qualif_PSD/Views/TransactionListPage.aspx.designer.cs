@@ -11,7 +11,7 @@ namespace Qualif_PSD.Views
 {
 
 
-    public partial class WebForm3
+    public partial class TransactionListPage
     {
 
         /// <summary>
@@ -24,30 +24,21 @@ namespace Qualif_PSD.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CartBtn control.
+        /// BackBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CartBtn;
+        protected global::System.Web.UI.WebControls.Button BackBtn;
 
         /// <summary>
-        /// TransactionBtn control.
+        /// TransactionGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TransactionBtn;
-
-        /// <summary>
-        /// ProductGV control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ProductGV;
+        protected global::System.Web.UI.WebControls.GridView TransactionGV;
     }
 }

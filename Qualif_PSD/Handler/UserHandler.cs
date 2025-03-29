@@ -11,9 +11,9 @@ namespace Qualif_PSD.Handler
     {
         UserRepository userRepository = new UserRepository();
 
-        public void createUser(string username, string email, string password, string gender)
+        public MsUser createUser(string username, string email, string password, string gender)
         {
-            userRepository.createUser(username, email, password, gender);
+            return userRepository.createUser(username, email, password, gender);
         }
 
         public MsUser getUser(string username, string password)

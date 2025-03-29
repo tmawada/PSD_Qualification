@@ -8,16 +8,15 @@ using System.Web.UI.WebControls;
 using Qualif_PSD.Controller;
 using Qualif_PSD.Model;
 
-namespace Qualif_PSD.Views
+namespace WebApplicationFrontend.Views
 {
     public partial class CartPage : System.Web.UI.Page
     {
-
         CartController cartController = new CartController();
-        TransactionController transactionController = new TransactionController();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           refreshGrid();
+            refreshGrid();
         }
         public void refreshGrid()
         {
@@ -74,43 +73,41 @@ namespace Qualif_PSD.Views
 
             int userId = user.Id;
 
-            transactionController.checkout(userId);
+            List<CartDetail> cartItems = db.CartDetails.Where(c => c.customer_id == userId).ToList();
+            if (cartItems.Count == 0)
+            {
+                ShowAlert("Cart is empty!");
+                return;
+            }
 
-            //List<CartDetail> cartItems = db.CartDetails.Where(c => c.customer_id == userId).ToList();
-            //if (cartItems.Count == 0)
-            //{
-            //    ShowAlert("Cart is empty!");
-            //    return;
-            //}
+            // 3️⃣ Create Transaction Header
+            TransactionHeader newTransaction = new TransactionHeader
+            {
+                user_id = userId,
+                transaction_date = DateTime.Now
+            };
+            db.TransactionHeaders.Add(newTransaction);
+            db.SaveChanges(); // Save to get transaction ID
 
-            //// 3️⃣ Create Transaction Header
-            //TransactionHeader newTransaction = new TransactionHeader
-            //{
-            //    user_id = userId,
-            //    transaction_date = DateTime.Now
-            //};
-            //db.TransactionHeaders.Add(newTransaction);
-            //db.SaveChanges(); // Save to get transaction ID
+            int transactionId = newTransaction.transaction_id; // Get generated Transaction ID
 
-            //int transactionId = newTransaction.transaction_id; // Get generated Transaction ID
+            //// 4️⃣ Insert into TransactionDetail
+            foreach (CartDetail item in cartItems)
+            {
+                TransactionDetail detail = new TransactionDetail
+                {
+                    transaction_id = transactionId,
+                    product_id = item.product_id
+                };
 
-            ////// 4️⃣ Insert into TransactionDetail
-            //foreach (CartDetail item in cartItems)
-            //{
-            //    TransactionDetail detail = new TransactionDetail
-            //    {
-            //        transaction_id = transactionId,
-            //        product_id = item.product_id
-            //    };
+                Debug.WriteLine("Product Id: " + detail.product_id);
 
-            //    Debug.WriteLine("Product Id: " + detail.product_id);
+                db.TransactionDetails.Add(detail);
+                db.SaveChanges(); // Save transaction details
+            }
 
-            //    db.TransactionDetails.Add(detail);
-            //    db.SaveChanges(); // Save transaction details
-            //}
-
-            //db.CartDetails.RemoveRange(cartItems);
-            //db.SaveChanges();
+            db.CartDetails.RemoveRange(cartItems);
+            db.SaveChanges();
 
             ShowAlert("Checkout successful!");
 

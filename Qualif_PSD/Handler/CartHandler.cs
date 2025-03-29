@@ -29,11 +29,5 @@ namespace Qualif_PSD.Handler
         {
             return cartRepository.getTotalPrice(userId);
         }
-
-        public void checkout(int userId)
-        {
-
-        }
-
     }
 }

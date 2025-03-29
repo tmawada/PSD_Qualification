@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
-using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Qualif_PSD.Controller;
 using Qualif_PSD.Model;
 
-namespace Qualif_PSD.Views
+namespace WebApplicationFrontend.Views
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class HomePage : System.Web.UI.Page
     {
         ProductController productController = new ProductController();
-        
-        CartController cartController = new CartController();   
+
+        CartController cartController = new CartController();
 
         private string role = "";
 
@@ -55,7 +52,7 @@ namespace Qualif_PSD.Views
                 int userId = user.Id;
 
                 string message = cartController.addToCart(userId, productId);
-                    
+
                 ShowAlert(message);
             }
         }
@@ -70,10 +67,9 @@ namespace Qualif_PSD.Views
         {
             Response.Redirect("CartPage.aspx");
         }
-
         protected void TransactionBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("TransactionListPage.aspx");
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

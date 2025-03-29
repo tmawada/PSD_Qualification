@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Qualif_PSD.Factory;
 using Qualif_PSD.Handler;
 using Qualif_PSD.Model;
+using Qualif_PSD.Modules;
 
-namespace Qualif_PSD.Controller
+namespace WebApplicationFrontend.Controller
 {
     public class UserController
     {
@@ -39,8 +39,11 @@ namespace Qualif_PSD.Controller
             }
             else
             {
-                userHandler.createUser(username, email, password, gender);
-                return "";
+                UserWebService.UserWebService webService1 = new UserWebService.UserWebService();
+                webService1.createUser(username, email, password, gender);
+
+                return Json.Decode<String>(webService1.createUser(username, email, password, gender));
+                //return "";
             }
         }
 

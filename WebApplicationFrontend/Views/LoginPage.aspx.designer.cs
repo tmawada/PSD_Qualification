@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Qualif_PSD.Views
+namespace WebApplicationFrontend.Views
 {
 
 
-    public partial class WebForm3
+    public partial class LoginPage
     {
 
         /// <summary>
@@ -24,30 +24,57 @@ namespace Qualif_PSD.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CartBtn control.
+        /// UsernameLB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CartBtn;
+        protected global::System.Web.UI.WebControls.Label UsernameLB;
 
         /// <summary>
-        /// TransactionBtn control.
+        /// UsernameTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TransactionBtn;
+        protected global::System.Web.UI.WebControls.TextBox UsernameTB;
 
         /// <summary>
-        /// ProductGV control.
+        /// PasswordLB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ProductGV;
+        protected global::System.Web.UI.WebControls.Label PasswordLB;
+
+        /// <summary>
+        /// PasswordTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PasswordTB;
+
+        /// <summary>
+        /// LoginBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LoginBtn;
+
+        /// <summary>
+        /// ErrorMes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorMes;
     }
 }

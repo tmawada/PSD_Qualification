@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Qualif_PSD.Views
+namespace WebApplicationFrontend.Views
 {
 
 
-    public partial class WebForm3
+    public partial class WebForm2
     {
 
         /// <summary>
@@ -24,22 +24,13 @@ namespace Qualif_PSD.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CartBtn control.
+        /// AddProductBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CartBtn;
-
-        /// <summary>
-        /// TransactionBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TransactionBtn;
+        protected global::System.Web.UI.WebControls.Button AddProductBtn;
 
         /// <summary>
         /// ProductGV control.
@@ -49,5 +40,14 @@ namespace Qualif_PSD.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView ProductGV;
+
+        /// <summary>
+        /// Message control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Message;
     }
 }

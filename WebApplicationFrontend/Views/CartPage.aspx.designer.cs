@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Qualif_PSD.Views
+namespace WebApplicationFrontend.Views
 {
 
 
-    public partial class WebForm3
+    public partial class CartPage
     {
 
         /// <summary>
@@ -24,30 +24,57 @@ namespace Qualif_PSD.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CartBtn control.
+        /// BackBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CartBtn;
+        protected global::System.Web.UI.WebControls.Button BackBtn;
 
         /// <summary>
-        /// TransactionBtn control.
+        /// CartGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TransactionBtn;
+        protected global::System.Web.UI.WebControls.GridView CartGV;
 
         /// <summary>
-        /// ProductGV control.
+        /// MessageLB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ProductGV;
+        protected global::System.Web.UI.WebControls.Label MessageLB;
+
+        /// <summary>
+        /// Rp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Rp;
+
+        /// <summary>
+        /// PriceLB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PriceLB;
+
+        /// <summary>
+        /// CheckoutBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CheckoutBtn;
     }
 }

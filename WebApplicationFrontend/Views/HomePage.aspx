@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="Qualif_PSD.Views.WebForm3" EnableEventValidation="false" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="WebApplicationFrontend.Views.HomePage" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h1>Home Page</h1>
-            
+
             <asp:Button ID="CartBtn" runat="server" Text="Cart" OnClick="CartBtn_Click"/>
             <asp:Button ID="TransactionBtn" runat="server" Text="Transaction" OnClick="TransactionBtn_Click"/><br><br>
 

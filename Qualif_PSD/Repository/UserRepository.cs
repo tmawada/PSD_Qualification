@@ -14,12 +14,14 @@ namespace Qualif_PSD.Repository
 
         UserFactory userFactory = new UserFactory();
 
-        public void createUser(string username, string email, string password, string gender)
+        public MsUser createUser(string username, string email, string password, string gender)
         {
             MsUser user= userFactory.createUser(username, email, password, gender);
 
             db.MsUsers.Add(user);
             db.SaveChanges();
+
+            return user;
         }
 
         public MsUser getUser(string username, string password)
