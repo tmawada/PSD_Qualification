@@ -60,5 +60,11 @@ namespace WebApplicationFrontend.Views
 
             Response.Redirect("UpdateProduct.aspx?Id=" + id);
         }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("LoginPage.aspx");
+        }
     }
 }

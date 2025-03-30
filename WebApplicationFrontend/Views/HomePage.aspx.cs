@@ -76,5 +76,11 @@ namespace WebApplicationFrontend.Views
         {
             Response.Redirect("TransactionListPage.aspx");
         }
+
+        protected void LogOutBtn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("LoginPage.aspx");
+        }
     }
 }

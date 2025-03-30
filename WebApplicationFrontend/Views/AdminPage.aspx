@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h1>Admin Page</h1>
+            <asp:Button ID="LogOut" runat="server" Text="Logout" OnClick="LogOut_Click"/><br><br>
             <asp:Button ID="AddProductBtn" runat="server" Text="AddProduct" OnClick="AddProductBtn_Click" />
             <br><br>
             <asp:GridView ID="ProductGV" runat="server" AutoGenerateColumns="False" OnRowDeleting="ProductGV_RowDeleting" OnRowEditing="ProductGV_RowEditing">
