@@ -10,10 +10,11 @@
     <form id="form1" runat="server">
         <div>
             <h1>Add Product</h1><br>
+            <asp:Button ID="BackBtn" runat="server" Text="Back" OnClick="BackBtn_Click"/><br><br>
             <asp:Label ID="ProductNameLB" runat="server" Text="ProductName"></asp:Label><br>
             <asp:TextBox ID="ProductNameTB" runat="server"></asp:TextBox><br>
             <asp:Label ID="ProductPriceLB" runat="server" Text="ProductPrice"></asp:Label><br>
-            <asp:TextBox ID="ProductPriceTB" runat="server" TextMode="Number"></asp:TextBox><br>
+            <asp:TextBox ID="ProductPriceTB" runat="server" TextMode="Number"></asp:TextBox><br><br>
             <asp:DropDownList ID="ProductTypeDD" runat="server">
                 <asp:ListItem Value="CPU">CPU</asp:ListItem>
                 <asp:ListItem Value="GPU">GPU</asp:ListItem>

@@ -58,5 +58,10 @@ namespace WebApplicationFrontend.Views
             }
 
         }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminPage.aspx");
+        }
     }
 }
