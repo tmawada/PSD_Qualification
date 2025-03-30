@@ -15,7 +15,7 @@
             <asp:Label ID="PasswordLB" runat="server" Text="Password"></asp:Label><br>
             <asp:TextBox ID="PasswordTB" runat="server" TextMode="Password"></asp:TextBox> <br><br>
             <asp:Button ID="LoginBtn" runat="server" Text="Login" OnClick="LoginBtn_Click"/><br>
-            <asp:Label ID="ErrorMes" runat="server" Text=" " ForeColor="Red"></asp:Label><br><br>
+            <asp:Label ID="ErrorMes" runat="server" Text=" " ForeColor="Red"></asp:Label><br>
             <asp:HyperLink ID="RegisterHL" runat="server" NavigateUrl="~/Views/RegisterPage.aspx">Don't have account ? Register here</asp:HyperLink>
         </div>
     </form>

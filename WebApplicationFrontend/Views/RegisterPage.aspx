@@ -24,7 +24,9 @@
                 <asp:ListItem Value="Female">Female</asp:ListItem>
             </asp:RadioButtonList><br>
             <asp:Button ID="RegisterBtn" runat="server" Text="Register" OnClick="RegisterBtn_Click"/> <br>
-            <asp:Label ID="ErrorMes" runat="server" Text=" " ForeColor="Red"></asp:Label>
+            <asp:Label ID="ErrorMes" runat="server" Text=" " ForeColor="Red"></asp:Label><br>
+            <asp:HyperLink ID="LoginHL" runat="server" NavigateUrl="~/Views/LoginPage.aspx">Already have an account ?</asp:HyperLink>
+
         </div>
     </form>
 </body>

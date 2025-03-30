@@ -46,20 +46,20 @@ namespace WebApplicationFrontend.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/TransactionWebService.asmx")]
-        public string WebApplicationFrontend_TransactionWebService_TransactionWebService {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/CartWebService.asmx")]
+        public string WebApplicationFrontend_CartWebService_CartWebService {
             get {
-                return ((string)(this["WebApplicationFrontend_TransactionWebService_TransactionWebService"]));
+                return ((string)(this["WebApplicationFrontend_CartWebService_CartWebService"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/CartWebService.asmx")]
-        public string WebApplicationFrontend_CartWebService_CartWebService {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44316/WebServices/TransactionWebService.asmx")]
+        public string WebApplicationFrontend_TransactionWebService_TransactionWebService {
             get {
-                return ((string)(this["WebApplicationFrontend_CartWebService_CartWebService"]));
+                return ((string)(this["WebApplicationFrontend_TransactionWebService_TransactionWebService"]));
             }
         }
     }

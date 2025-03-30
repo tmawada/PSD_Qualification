@@ -30,6 +30,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getTransactionDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransactionDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTransactionDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="checkoutSoapIn">
@@ -44,6 +58,12 @@
   <wsdl:message name="getTransactionSoapOut">
     <wsdl:part name="parameters" element="tns:getTransactionResponse" />
   </wsdl:message>
+  <wsdl:message name="getTransactionDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:getTransactionDetail" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:getTransactionDetailResponse" />
+  </wsdl:message>
   <wsdl:portType name="TransactionWebServiceSoap">
     <wsdl:operation name="checkout">
       <wsdl:input message="tns:checkoutSoapIn" />
@@ -52,6 +72,10 @@
     <wsdl:operation name="getTransaction">
       <wsdl:input message="tns:getTransactionSoapIn" />
       <wsdl:output message="tns:getTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionDetail">
+      <wsdl:input message="tns:getTransactionDetailSoapIn" />
+      <wsdl:output message="tns:getTransactionDetailSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="TransactionWebServiceSoap" type="tns:TransactionWebServiceSoap">
@@ -74,6 +98,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getTransactionDetail">
+      <soap:operation soapAction="http://tempuri.org/getTransactionDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="TransactionWebServiceSoap12" type="tns:TransactionWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -88,6 +121,15 @@
     </wsdl:operation>
     <wsdl:operation name="getTransaction">
       <soap12:operation soapAction="http://tempuri.org/getTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionDetail">
+      <soap12:operation soapAction="http://tempuri.org/getTransactionDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

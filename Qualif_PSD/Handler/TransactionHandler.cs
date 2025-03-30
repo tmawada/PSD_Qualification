@@ -20,5 +20,9 @@ namespace Qualif_PSD.Handler
             return transactionRepository.getTransaction(userId);
         }
 
+        public List<TransactionDetail> GetTransactionDetail(int transactionId)
+        {
+            return transactionRepository.getTransactionDetail(transactionId);
+        }
     }
 }

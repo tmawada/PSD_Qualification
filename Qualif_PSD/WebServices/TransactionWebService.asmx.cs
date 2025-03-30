@@ -34,5 +34,10 @@ namespace Qualif_PSD.WebServices
             return Json.Encode(transactionHandler.getTransaction(userId));
         }
 
+        [WebMethod]
+        public string getTransactionDetail(int transactionId)
+        {
+            return Json.Encode(transactionHandler.GetTransactionDetail(transactionId));
+        }
     }
 }

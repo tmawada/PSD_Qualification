@@ -19,6 +19,11 @@ namespace WebApplicationFrontend.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
+
             if (!IsPostBack)
             {
                 MsUser user = Session["user"] as MsUser;

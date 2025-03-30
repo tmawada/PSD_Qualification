@@ -33,9 +33,9 @@ namespace WebApplicationFrontend.Controller
 
         }
 
-        public List<object> getUserCartDetails(int userId)
+        public List<CartDetail> getUserCartDetails(int userId)
         {
-            List<object> userCartDetail = Json.Decode<List<object>>(cartWebService.getUserCartDetails(userId));
+            List<CartDetail> userCartDetail = Json.Decode<List<CartDetail>>(cartWebService.getUserCartDetails(userId));
 
             return userCartDetail;
         }

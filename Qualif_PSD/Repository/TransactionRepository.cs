@@ -75,5 +75,12 @@ namespace Qualif_PSD.Repository
 
         }
 
+        public List<TransactionDetail> getTransactionDetail(int transactionId)
+        {
+            List<TransactionDetail> transactionDetailList = db.TransactionDetails.Where(t => t.transaction_id == transactionId).ToList();
+
+            return transactionDetailList;
+        }
+
     }
 }

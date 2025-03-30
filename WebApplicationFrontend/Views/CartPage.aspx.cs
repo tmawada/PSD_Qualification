@@ -17,6 +17,10 @@ namespace WebApplicationFrontend.Views
         TransactionController transactionController = new TransactionController();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
             refreshGrid();
         }
         public void refreshGrid()
@@ -26,7 +30,7 @@ namespace WebApplicationFrontend.Views
 
             string message = "";
 
-            List<object> listItems = cartController.getUserCartDetails(userId);
+            List<CartDetail> listItems = cartController.getUserCartDetails(userId);
             
             int totalPrice = 0;
 

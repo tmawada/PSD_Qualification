@@ -13,7 +13,10 @@ namespace WebApplicationFrontend.Views
         ProductController productController = new ProductController();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginPage.aspx");
+            }
         }
 
         protected void AddProductBtn_Click(object sender, EventArgs e)

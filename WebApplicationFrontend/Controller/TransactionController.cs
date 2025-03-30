@@ -27,5 +27,14 @@ namespace WebApplicationFrontend.Controller
 
             return Json.Decode<List<TransactionHeader>>(jsonResponse);
         }
+
+        public List<TransactionDetail> getTransactionDetail(int transactionId)
+        {
+            TransactionWebService.TransactionWebService transactionWebService = new TransactionWebService.TransactionWebService();
+
+            string jsonResponse = transactionWebService.getTransactionDetail(transactionId);
+
+            return Json.Decode<List<TransactionDetail>>(jsonResponse);
+        }
     }
 }
